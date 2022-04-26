@@ -1,0 +1,74 @@
+<div class="customizer" [ngClass]="{ open: isOpen }">
+  <div class="handle" (click)="isOpen = !isOpen">
+    <i class="material-icons">settings</i>
+  </div>
+  <div class="customizer-body" perfectScrollbar>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="mb-3 md-hide">
+          Layout Mode
+        </h5>
+        <div class="mb-4 md-hide">
+          <label class="checkbox checkbox-primary">
+            <input type="checkbox" [(ngModel)]="horizontalLayout" (change)="changeLayout()">
+            <span>Horizontal Layout</span>
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <!-- <div class="mb-4 md-hide">
+          <label class="checkbox checkbox-primary">
+            <input type="checkbox" [(ngModel)]="isRTL" (change)="toggleDir()">
+            <span>Enable RTL</span>
+            <span class="checkmark"></span>
+          </label>
+        </div> -->
+        <!-- <div class="mb-4 md-hide">
+          <label class="checkbox checkbox-primary" >
+            <input type="checkbox" [(ngModel)]="disableIcon" (change)="disableIconLayout()">
+            <span>Disable Icon Text</span>
+            <span class="checkmark"></span>
+          </label>
+        </div> -->
+        <!-- <div class="mb-4 md-hide">
+          <label class="checkbox checkbox-primary">
+            <input type="checkbox" [(ngModel)]="largeSidebar" (change)="changeSidebarLayout()">
+            <span>Sidebar Large</span>
+            <span class="checkmark"></span>
+          </label>
+        </div> -->
+        <h5 class="mb-3">
+          Color Mode
+        </h5>
+        <div class="mb-4">
+          <label class="checkbox checkbox-primary">
+            <input type="radio" name="layout" [(ngModel)]="themeLayout" value="default-theme" (click)="selectLayoutColor('default-theme')">
+            <span>Default</span>
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <!-- <div class="mb-4">
+          <label class="checkbox checkbox-primary">
+            <input type="radio" name="layout" [(ngModel)]="themeLayout" value="white-theme" (click)="selectLayoutColor('white-theme')">
+            <span>Light/White</span>
+            <span class="checkmark"></span>
+          </label>
+        </div> -->
+        <div class="mb-4">
+          <label class="checkbox checkbox-primary">
+            <input type="radio" name="layout" [(ngModel)]="themeLayout" value="black-n-white-active" (click)="selectLayoutColor('black-n-white-active')">
+            <span>Black and White</span>
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="mb-4">
+          <label class="checkbox checkbox-primary">
+            <input type="radio" name="layout" [(ngModel)]="themeLayout" value="dark-theme" (click) = "selectLayoutColor('dark-theme')">
+            <span>Dark</span>
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

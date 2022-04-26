@@ -1,0 +1,344 @@
+//white theme
+
+.white-theme {}
+
+//dark theme
+
+html.dark-theme {
+  background: #000000;
+
+  .app-admin-wrap {
+    background: #000000;
+  }
+  .sidebar-main{
+    background: #000000 !important;
+  }
+}
+
+.dark-theme {
+
+  .faigo-sidebar-main .faigo-main-header,
+  .main-content-wrap,
+  .faigo-sidebar-main .sidebar-main-secondary,
+  .faigo-sidebar-main .sidebar-main,
+  .app-footer,
+  .add-new-text,
+  .add-new-text .form-control,
+  .form-control {
+    background: #121212;
+  }
+
+  .chat-sidebar-container .chat-content-wrap .chat-content .message {
+    background: $purple;
+    color: #fff;
+
+    .text-title {
+      color: #fff;
+    }
+  }
+
+  .chat-sidebar-container .chat-content-wrap .chat-content .message::before {
+    background: $purple;
+    border-color: transparent transparent $purple transparent;
+  }
+
+  .card,
+  .chat-sidebar-container .chat-sidebar-wrap .contacts-scrollable,
+  .inbox-main-sidebar-container .inbox-main-sidebar,
+  .inbox-main-sidebar-container .inbox-secondary-sidebar-container .inbox-secondary-sidebar,
+  .mega-menu .dropdown-menu,
+  .dropdown-menu,
+  .not-found-wrap {
+    background: #161616;
+  }
+
+  .card,
+  .mega-menu .dropdown-menu {
+    box-shadow: 0 31px 35px rgba(0, 0, 0, .1);
+  }
+
+  .pro-timeline .pro-timeline--thumb {
+    background: $purple;
+    color: #fff;
+  }
+
+  .horizontal-menu .main-h-list>li>a {
+    border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
+  }
+
+  &.horizontal-menu-active .faigo-main-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .faigo-sidebar-main .sidebar-main {
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .horizontal-menu .main-h-list ul.dropdown {
+    background: #202020;
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.05);
+  }
+
+  .horizontal-menu .main-h-list ul.dropdown a:hover {
+    background: #000;
+    color: #fff;
+  }
+
+  .horizontal-menu {
+    background: #202020;
+  }
+
+  .faigo-horizontal-header .horizontal-menu-top {
+    background: #121212;
+
+  }
+
+  .faigo-horizontal-header {
+    background: #202020;
+
+    .horizontal-menu-top {
+      margin: 0;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #77808f;
+  }
+
+  .card-title {
+    color: #fff !important;
+  }
+
+  .ngx-datatable.material {
+    background: #161616;
+  }
+
+  .ngx-datatable.material .datatable-header .datatable-header-cell {
+
+    background-color: #121212;
+    color: rgba(255, 255, 255, 0.54);
+
+  }
+
+  .ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell {
+
+    color: rgba(255, 255, 255, 0.87);
+
+  }
+
+  .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover,
+  .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group {
+    background-color: #000;
+
+  }
+
+  .alert {
+    background: #111112;
+  }
+
+  .table th,
+  .table td {
+    border-top: 1px solid #262a2e;
+  }
+
+  .cal-month-view {
+    background: #121212;
+  }
+
+  .fiago-chat-wrap .chat-sidebar-wrap .contacts-scrollable,
+  .fiago-chat-wrap .chat-topbar {
+
+    background: #161616;
+  }
+
+  .border-bottom {
+    border-bottom: 1px solid #161a1a !important;
+  }
+
+  .fiago-chat-wrap .chat-content-wrap .chat-content .message {
+
+    background: #121212;
+
+  }
+
+  .fiago-chat-wrap .chat-content-wrap .chat-content .message::before {
+
+    border-color: transparent transparent #121212 transparent;
+
+  }
+
+  .breadcrumb {
+    border-bottom: 1px solid #282828;
+  }
+
+  .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    color: #737373;
+    background: #161616;
+  }
+}
+
+.disable-sidebar-text {
+  .faigo-sidebar-main .sidebar-main .sidebar-nav .nav-item .nav-item-hold .nav-text {
+    display: none;
+  }
+
+  .faigo-sidebar-main .sidebar-main .sidebar-nav .nav-item .nav-item-hold {
+    padding: 15px 0;
+  }
+
+
+}
+
+.logo-icon {
+  display: none;
+}
+
+
+.large-sidebar {
+  .faigo-sidebar-main .sidebar-main .sidebar-nav {
+    width: 85px;
+  }
+
+  .faigo-sidebar-main .sidebar-main .sidebar-nav .nav-menu .nav-menu__name {
+    display: none;
+  }
+
+  .main-content-wrap.sidenav-open {
+    width: calc(100% - 85px);
+  }
+
+  .faigo-sidebar-main .sidebar-main-secondary.open {
+    left: 85px;
+  }
+
+  .faigo-main-header {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+
+  .logo-main {
+    display: none;
+  }
+
+  .logo-icon {
+    display: block;
+  }
+
+}
+
+.black-n-white-active {
+  .card-title {
+
+    color: #fff;
+    background: #000;
+
+  }
+
+  .faigo-sidebar-main .sidebar-main {
+    background: #000;
+  }
+
+  .bg-primary {
+    background: #000 !important;
+  }
+
+  .customizer .handle {
+    background: #000 !important;
+  }
+
+  .faigo-sidebar-main .sidebar-main-secondary {
+    background: #000 !important;
+  }
+
+  .badge-primary {
+    background: #000;
+  }
+
+  .btn-primary {
+    background: #000;
+    border-color: #000;
+  }
+}
+
+@media(max-width:1200px) {
+  .md-row {
+    >div {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .faigo-sidebar-main .faigo-main-header .logo {
+    padding: 0rem !important;
+
+    img {
+      margin: 0 !important;
+    }
+  }
+
+  .faigo-sidebar-main .faigo-main-header .notification-dropdown {
+    transform: translate(0) !important;
+    top: 0 !important;
+  }
+}
+
+.faigo-main-header {
+  transition: all .24s ease-in-out;
+}
+ .sidebar-closed {
+   .faigo-sidebar-main .faigo-main-header {
+     width: 100%;
+   }
+ }
+
+.wel-icon {
+	background: #fff;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 100%;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2);
+	margin-bottom: 1rem;
+}
+@media(max-width:1550px){
+  .md-row{
+  .half{
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+.md-row{
+  .full{
+    flex: 0 0 100%;
+    max-width: 1000%;
+  }
+}
+}
+@media(max-width:1280px){
+  .md-row{
+  .half{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+}
+li.active{
+  .sub-menu-wrap{
+
+  }
+}
+.faigo-sidebar-main .sidebar-main .sidebar-nav li.active .sub-menu-wrap .nav-menu:hover .nav-menu__icon::before {
+	content: none;
+}
+

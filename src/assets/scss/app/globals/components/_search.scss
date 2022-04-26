@@ -1,0 +1,41 @@
+.search-ui {
+    position: fixed;
+    background: $background;
+    top: 0;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    height: 80px;
+    padding: .75rem 1.5rem 1.5rem 4.5rem;
+    z-index: 9999;
+    .search-header {
+        .logo {
+            height: 64px;
+            width: auto;
+        }
+    }
+    input.search-input {
+        font-size: 1.8rem;
+        border: 0;
+        margin-bottom: 1.5rem;
+        width: 80%;
+        &:focus {
+            outline: 0;
+        }
+        &::placeholder {
+            color: $gray-400;
+        }
+    }
+    .search-title {
+        margin-bottom: 1.25rem;
+        span {
+            font-weight: 600;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .search-ui {
+        padding: 1rem;
+    }
+}

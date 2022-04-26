@@ -1,0 +1,39 @@
+<div class="breadcrumb">
+    <h1>Buttons Loading</h1>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Loading Buttons</h5>
+                <div>
+                    <btn-loading 
+                    *ngFor="let btn of loadingButtons"
+                    btnClass="btn-{{btn.name}} m-1" 
+                    [loading]="btn.loading" 
+                    loadingText="Wait..."
+                    (click)="showLoading(btn)">
+                        Button
+                    </btn-loading>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Variant 2</h5>
+                <div>
+                    <button 
+                    *ngFor="let btn of laddaButtons"
+                    class="btn btn-{{btn.name}} ladda-button m-1"
+                    [ladda]="btn.loading" 
+                    (click)="showLoading(btn)">
+                      Button
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+@import 'colors';
+// @import 'sidebar-compact/layout-sidebar-compact';
+@import 'sidebar-large/sidebar-main';
+@import 'footer';
+
+
+// Common Layout Styles
+
+[dir="rtl"] {
+    .notification-dropdown .dropdown-item .notification-details {
+        text-align: right;
+    }
+
+    .faigo-main-header .user {
+        margin-left: 0rem;
+        margin-right: 0;
+    }
+
+    .faigo-sidebar-main .sidebar-main .sidebar-nav .nav-item.active {
+        border-right: 5px solid #50639c;
+        border-left: 0;
+    }
+
+    .customizer {
+        left: -380px;
+        right: auto;
+
+        &.open {
+            left: 0;
+            right: auto;
+        }
+
+        .handle {
+            left: auto;
+            right: -36px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
+}
+
+@media(max-width:1200px) {
+    .faigo-sidebar-main .faigo-main-header .logo {
+        margin-right: 1rem !important;
+        margin-left: 1rem !important;
+    }
+    .md-hide{
+        display: none;
+    }
+}
+
+@media(max-width:767px){
+    app-invoice-list{
+        .d-flex.flex-row-reverse{
+            display: block !important;
+        }
+        .row.pb-5.p-5{
+            padding-bottom: 0 !important;
+        }
+        .col-md-6.text-right{
+            text-align: left !important;
+            margin-top: 2rem;
+        }
+    }
+}
+
+@media(max-width:575px) {
+    .faigo-sidebar-main .faigo-main-header .logo {
+        margin: 0 !important;
+    }
+    .txt-right-md{
+        text-align: left !important;
+        margin-top: 2rem;
+    }
+    .hide-sm {
+	display: none !important;
+}
+.badge-price {
+    display: block !important;
+    .badge-price--icon{
+        margin-bottom: 1rem;
+    }
+}
+}

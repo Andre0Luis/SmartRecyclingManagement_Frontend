@@ -1,0 +1,140 @@
+<div>
+    <!-- MAIN SIDEBAR CONTAINER -->
+    <div appSidebarContainer class="inbox-main-sidebar-container">
+        <div appSidebarContent class="inbox-main-content">
+            <!-- SECONDARY SIDEBAR CONTAINER -->
+            <div appSidebarContainer class="inbox-secondary-sidebar-container box-shadow-1">
+                <div appSidebarContent>
+                    <div class="inbox-secondary-sidebar-content position-relative" style="min-height: 500px">
+                        <div class="inbox-topbar box-shadow-1 pl-3 rtl-ps-none"
+                            [perfectScrollbar]="{suppressScrollY: true}">
+                            <!-- <span class="d-sm-none">Test</span> -->
+                            <a appSidebarToggler="inbox-main-sidebar" class="link-icon d-md-none">
+                                <i class="icon-regular i-Arrow-Turn-Left"></i>
+                            </a>
+                            <a appSidebarToggler="inbox-secondary-sidebar" class="link-icon mr-3 d-md-none">
+                                <i class="icon-regular mr-1 i-Left-3"></i>
+                                Inbox
+                            </a>
+
+                            <div class="d-flex" *ngIf="selected">
+                                <a href="" class="link-icon mr-3"><i class="icon-regular i-Left"></i></a>
+                                <a href="" class="link-icon mr-3"><i class="icon-regular i-Right"></i>
+                                </a>
+                                <a href="" class="link-icon mr-3"><i class="icon-regular i-Mail-Reply-All"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- EMAIL DETAILS -->
+                        <div class="inbox-details rtl-ps-none" *ngIf="selected"
+                            [perfectScrollbar]="{suppressScrollX: true}">
+                            <h3 class="mb-3">{{selected?.subject}}</h3>
+                            <div class="row no-gutters">
+                                <div class="mr-2" style="width: 36px">
+                                    <img class="rounded-circle" [src]="selected?.sender?.photo" alt="">
+                                </div>
+                                <div class="col-xs-12">
+
+
+                                    <div ngbDropdown  class="more-info caret-down  align-self-end">
+                                        <p class="m-0" id="userDropdown" ngbDropdownToggle>{{selected?.sender?.name}}
+                                        </p>
+
+                                        <div ngbDropdownMenu aria-labelledby="userDropdown"
+                                            class="header-account-dropdown">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="title">from:</td>
+                                                        <td class="detail">Theodore Nott &lt;theodorenott@company.com&gt;
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="title">to:</td>
+                                                        <td class="detail">me &lt;severussnape@company.com&gt;</td>
+                                                    </tr>
+                                                    <tr >
+                                                        <td class="title">cc:</td>
+                                                        <td class="detail">Katie Bell
+                                                            &lt;katiebell@company.com&gt;</td>
+                                                    </tr>
+                                                    <!---->
+                                                    <!---->
+                                                    <tr>
+                                                        <td class="title">date:</td>
+                                                        <td class="detail">Tuesday, March, 2020 - 06:07 AM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="title">subject:</td>
+                                                        <td class="detail">Confirm your email address</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+                                    <p class="text-12 text-muted">{{selected?.date | date}}</p>
+                                </div>
+                            </div>
+
+                            <div [innerHTML]="selected?.message"></div>
+                        </div>
+                        <!-- Intro screen -->
+                        <div class="app-inro-circle inbox-intro d-flex align-items-center justify-content-center" *ngIf="!selected">
+                            <div class="text-center">
+                                <div class="wel-icon mx-auto">
+                                     <span class="material-icons">all_inbox</span>
+                                </div>
+                                  <h2 [@animate]="{value:'*',params:{y:'120px',delay:'600ms', duration: '400ms'}}">Welcome to</h2>
+                            <h2 [@animate]="{value:'*',params:{y:'120px',delay:'600ms', duration: '400ms'}}">Inbox
+                                App</h2>
+                                </div>
+                         
+                        </div>
+                    </div>
+                </div>
+                <div appSidebar="inbox-secondary-sidebar" class="inbox-secondary-sidebar rtl-ps-none"
+                    [perfectScrollbar]="{suppressScrollX: true}">
+                    <i class="sidebar-close i-Close" appSidebarToggler="inbox-secondary-sidebar"></i>
+
+                    <div class="mail-item" *ngFor="let m of mails$ | async" (click)="select(m)">
+
+                        <div class="col-xs-12 details">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="name">{{m.sender.name}}</h6>
+                                <div class="date">
+                                    <span class="text-muted">{{m.date | date}}</span>
+                                </div>
+                            </div>
+
+                            <p class="m-0">{{m.subject}}</p>
+                            <!-- <div>{{m.message}}</div> -->
+                            <p>Natus consequuntur perspiciatis esse beatae illo quos eaque.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN SIDEBAR -->
+        <div appSidebar="inbox-main-sidebar" class="inbox-main-sidebar">
+            <div class="pt-3 pr-3 pb-3">
+                <i class="sidebar-close i-Close" appSidebarToggler="inbox-main-sidebar"></i>
+                <button class="btn btn-outline-primary btn-lg btn-block mb-4" (click)="openComposeModal()"> <i
+                        class="i-Add mr-1"></i> Compose</button>
+                <h5 class="mb-2">Folder</h5>
+                <ul class="inbox-main-nav">
+                    <li><a href="" class="active"><i class="icon-regular i-Mail-2"></i> Inbox (8)</a></li>
+                    <li><a href=""><i class="icon-regular i-Mail-Outbox"></i> Sent</a></li>
+                    <li><a href=""><i class="icon-regular i-Data-Save"></i> Draft</a></li>
+                    <li><a href=""><i class="icon-regular i-Folder-Trash"></i> Trash</a></li>
+                    <li><a href=""><i class="icon-regular i-Spam-Mail"></i> Spam</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>

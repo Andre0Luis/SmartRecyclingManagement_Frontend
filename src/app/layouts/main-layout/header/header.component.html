@@ -1,0 +1,72 @@
+<div class="faigo-main-header d-flex justify-content-between">
+	<div class="header-part-left">
+		<div class="menu-toggle" (click)="toggelSidebar()">
+			<i class="material-icons-outlined">menu_open</i>
+		</div>
+	</div>
+	<!-- <div class="header-part-center">
+		<div class="logo-both d-flex align-items-center">
+			<div class="logo mr-2">
+				<img src="./assets/images/logo-icon.png" width="40" class="img-fluid" alt="">
+			</div>
+			<div class="logo-text">
+				<img src="./assets/images/logo-text.png" width="65" class="img-fluid" alt="">
+			</div>
+		</div>
+	</div> -->
+	<div class="header-part-right">
+		<div>
+			<i class="material-icons-outlined search-icon  header-icon cursor-pointer" role="button"
+				(click)="searchService.searchOpen = true">search</i>
+			<i fullScreenWindow class="material-icons-outlined fullscreen-icon header-icon d-none d-sm-inline-block cursor-pointer"
+				role="button">fullscreen</i>
+			<div ngbDropdown [placement]="'bottom-right'" class="d-none d-sm-inline-block">
+				<i ngbDropdownToggle class="material-icons-outlined header-icon" role="button">settings</i>
+				<div ngbDropdownMenu class="menu-icon-grid-dropdown">
+					<div class="menu-icon-grid">
+						<a href="#"><i class="material-icons-outlined">home</i> Home</a>
+						<a href="#"><i class="material-icons-outlined">library_add</i> UI Kits</a>
+						<a href="#"><i class="material-icons-outlined">apps</i> Apps</a>
+						<a href="#"><i class="material-icons-outlined">list</i> Forms</a>
+						<a href="#"><i class="material-icons-outlined">perm_identity</i> Sessions</a>
+						<a href="#"><i class="material-icons-outlined">help</i> Support</a>
+					</div>
+				</div>
+			</div>
+
+			<div ngbDropdown [placement]="'bottom-right'">
+				<div class="badge-top-container">
+					<span class="badge badge-primary">{{notifications.length}}</span>
+					<i ngbDropdownToggle class="material-icons-outlined header-icon" role="button">notification_important</i>
+				</div>
+				<div ngbDropdownMenu class="notification-dropdown rtl-ps-none" perfectScrollbar>
+					<div class="dropdown-item d-flex" *ngFor="let item of notifications" [routerLink]="[item.link]">
+						<div class="notification-icon">
+							<i class="material-icons-outlined text-{{item.status}} mr-1">{{item.icon}}</i>
+						</div>
+						<div class="notification-details">
+							<p class="m-0 font-weight-500">
+								<span>{{item.title}}</span>
+								<span class="flex-grow-1"></span>
+							</p>
+							<p class="text-small text-muted m-0">{{item.text | excerpt:30}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div ngbDropdown [placement]="'bottom-right'" class="user col align-self-end">
+				<img src="./assets/images/thumb/user-1.jpg" id="userDropdown" ngbDropdownToggle alt="">
+
+				<div ngbDropdownMenu aria-labelledby="userDropdown" class="header-account-dropdown">
+					<div class="dropdown-header">
+						<h5> Hi! Timothy Carlson</h5>
+					</div>
+					<button class="dropdown-item">Profile Settings</button>
+					<button class="dropdown-item">Email Inbox</button>
+					<button class="dropdown-item" (click)="signout()">Sign out</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

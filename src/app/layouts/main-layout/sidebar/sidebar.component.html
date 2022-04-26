@@ -1,0 +1,64 @@
+<div [ngClass]="{ open: navService.sidebarState.sidenavOpen }" class="sidebar-main rtl-ps-none"
+	[perfectScrollbar]="{ suppressScrollX: true }">
+	<div class="logo-both d-flex justify-content-between align-items-center">
+		<div class="logo mr-2">
+			<img src="/assets/images/main-logo-white.png" width="100" class="img-fluid logo-main" alt="">
+			<img src="/assets/images/logo-icon.png" width="42" height="42" class="img-fluid logo-icon" alt="logoicon">
+		</div>
+		<div>
+			<div class="menu-toggle text-white" (click)="closeSidebar()">
+				<i class="material-icons-outlined">menu_open</i>
+			</div>
+		</div>
+	</div>
+	<ul class="sidebar-nav">
+		<li [ngClass]="{ active: item.active }" *ngFor="let item of nav">
+			<div class="test-div" *ngIf="item.type === 'link'">
+				<a routerLink="{{ item.state }}" class="nav-menu" (click)="onClickChangeActiveFlag(item)">
+					<div class="nav-menu__icon"> <i class="material-icons-outlined">{{item.icon}}</i> </div>
+					<div class="nav-menu__name"> {{ item.name }} </div>
+				</a>
+			</div>
+			<div class="test-div" *ngIf="item.type === 'dropDown'">
+				<a href="javascript:;" class="nav-menu faigo-drop-menu">
+					<div class="nav-menu__icon"> <i class="material-icons-outlined">{{item.icon}}</i> </div>
+					<div class="nav-menu__name"> {{ item.name }} </div>
+				</a>
+				<ul class="sub-menu-wrap">
+					<li *ngFor="let subItem of item.sub">
+						<div class="test-div" *ngIf="subItem.type === 'link'">
+							<a routerLink="{{ subItem.state }}" class="nav-menu" (click)="onClickChangeActiveFlag(item)">
+								<div class="nav-menu__icon"> <i class="material-icons-outlined">{{subItem.icon}}</i></div>
+								<div class="nav-menu__name">{{subItem.name}}</div>
+							</a>
+						</div>
+						<div class="sub-menu-wrap" *ngIf="subItem.type === 'dropDown'">
+							<a href="javascript:;" class="nav-menu faigo-drop-menu">
+								<div class="nav-menu__icon"> <i class="material-icons-outlined">{{subItem.icon}}</i></div>
+								<div class="nav-menu__name">{{subItem.name}}</div>
+							</a>
+							<ul class="sub-menu-wrap">
+								<li *ngFor="let supSubItem of subItem.sub">
+									<div *ngIf="supSubItem.type === 'link'">
+										<a routerLink="{{ supSubItem.state }}" class="nav-menu"
+											(click)="onClickChangeActiveFlag(item)">
+											<div class="nav-menu__icon"> <i class="material-icons-outlined">{{supSubItem.icon}}</i>
+											</div>
+											<div class="nav-menu__name">{{supSubItem.name}}</div>
+										</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div *ngIf="item.type === 'extLink'">
+				<a [href]="item.state" target="_blank" class="nav-menu nav-item__active">
+					<div class="nav-menu__icon"> <i class="material-icons-outlined">{{item.icon}}</i> </div>
+					<div class="nav-menu__name"> {{ item.name }} </div>
+				</a>
+			</div>
+		</li>
+	</ul>
+</div>

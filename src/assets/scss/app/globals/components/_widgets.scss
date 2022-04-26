@@ -1,0 +1,184 @@
+.feed-list {
+    list-style: none;
+    padding-left: 0;
+
+    >li {
+        border-bottom: 1px solid $border-color;
+        padding-bottom: 1rem;
+    }
+
+    .feed-list--action {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+            display: inline-flex;
+
+            margin-right: 0.9rem;
+
+            a {
+                align-items: center;
+                display: flex;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+//User Widget
+
+.user-block-1 img {
+    margin-bottom: -106px;
+}
+
+.card-user {
+    padding: 4.5rem 1rem 3rem;
+}
+
+.pro-timeline {
+    padding-left: 0;
+    padding-right: 0;
+
+    li {
+        position: relative;
+        border: none;
+        padding-left: 0;
+        padding-right: 0;
+
+        >div {
+            position: relative;
+            z-index: 9;
+        }
+
+        &:before {
+            position: absolute;
+            height: 100%;
+            content: '';
+            border-left: 1px solid $border-color;
+            top: 0;
+            bottom: 0;
+            left: 26px;
+            z-index: 1;
+        }
+    }
+
+    .pro-timeline--thumb {
+        width: 50px;
+        height: 50px;
+        background: $white;
+        border: 1px solid $border-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+
+        i {
+            font-size: 1.2rem;
+        }
+    }
+
+    .list-group-item {
+        background: transparent;
+    }
+
+    .info {
+        width: calc(100% - 85px);
+    }
+}
+
+//Todo List
+
+.tasklist-list {
+    .list-group-item {
+        background: transparent;
+    }
+
+    li {
+        input[type="checkbox"]:checked+label {
+            text-decoration: line-through;
+        }
+    }
+
+    .input-group-append {}
+}
+
+.add-new-text {
+    border: 1px solid #eee;
+    border-top: 0;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    border-radius: 5px;
+    align-items: center;
+    background: #ffffff;
+    margin-top: 0.8rem;
+
+    .form-control {
+        background: #ffffff;
+        border: 0;
+        padding-left: 0;
+        padding-right: 0;
+        height: 45px;
+    }
+}
+
+//Pages
+
+
+.dark-layer {
+    position: absolute;
+    background: $primary;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.search-bar-wrap {
+    .search-bar {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        background: #f8f9fa;
+        border: 1px solid #eee;
+        border-radius: 20px;
+        position: relative;
+        height: 50px;
+        width: 50%;
+        margin: 0 auto;
+
+        input {
+            background: transparent;
+            border: 0;
+            color: #212121;
+            font-size: .8rem;
+            line-height: 2;
+            height: 100%;
+            outline: initial !important;
+            padding: .5rem 1rem;
+            width: calc(100% - 32px);
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    a {
+        color: #27303f;
+    }
+}
+
+.breadcrumb h1 {
+    font-size: 32px;
+    margin-bottom: 0.5rem;
+}
+.box-shadow{
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}

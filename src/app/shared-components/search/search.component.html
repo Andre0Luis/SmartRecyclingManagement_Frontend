@@ -1,0 +1,9 @@
+<div class="search-ui rtl-ps-none" [@animate]="{value:'*',params:{y:'120px',opacity:'0',delay:'100ms', duration: '400ms'}}">
+	<div class="search-header">
+		<button class="btn btn-icon bg-transparent float-right mt-2" (click)="searchService.searchOpen = false">
+			<i class="material-icons text-22 text-muted">close</i>
+		</button>
+	</div>
+	<input type="text" placeholder="Type here" class="search-input" [formControl]="searchCtrl" autofocus>
+
+</div>

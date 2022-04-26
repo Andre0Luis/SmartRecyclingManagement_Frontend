@@ -1,0 +1,110 @@
+<div class="faigo-horizontal-header">
+	<div class="horizontal-menu-top">
+		<div class="horizontal-menu-top-right">
+			<div class="d-flex align-items-center">
+				<i class="material-icons-outlined header-icon mr-3 cursor-pointer" role="button"
+					(click)="searchService.searchOpen = true">search</i>
+				<i fullScreenWindow class="material-icons-outlined header-icon d-none d-sm-inline-block cursor-pointer"
+					role="button">fullscreen</i>
+			</div>
+
+
+
+		</div>
+		<div class="d-flex align-items-center">
+			<div class="logo-text">
+				<img src="./assets/images/logo-text.png" width="65" class="img-fluid" alt="">
+			</div>
+		</div>
+		<div class="horizontal-menu-top-left">
+			<div class="d-flex align-items-center">
+				<div ngbDropdown [placement]="'bottom-right'" class="d-none d-sm-inline-block mr-3">
+					<i ngbDropdownToggle class="material-icons-outlined header-icon cursor-pointer" role="button">settings</i>
+					<div ngbDropdownMenu class="menu-icon-grid-dropdown">
+						<div class="menu-icon-grid">
+							<a href="#"><i class="material-icons-outlined">home</i> Home</a>
+							<a href="#"><i class="material-icons-outlined">library_add</i> UI Kits</a>
+							<a href="#"><i class="material-icons-outlined">apps</i> Apps</a>
+							<a href="#"><i class="material-icons-outlined">list</i> Forms</a>
+							<a href="#"><i class="material-icons-outlined">perm_identity</i> Sessions</a>
+							<a href="#"><i class="material-icons-outlined">help</i> Support</a>
+						</div>
+					</div>
+				</div>
+
+				<div ngbDropdown [placement]="'bottom-right'" class="mr-3">
+					<div class="badge-top-container">
+						<span class="badge badge-primary">{{notifications.length}}</span>
+						<i ngbDropdownToggle class="material-icons-outlined header-icon cursor-pointer"
+							role="button">notification_important</i>
+					</div>
+					<div ngbDropdownMenu class="notification-dropdown rtl-ps-none" perfectScrollbar>
+						<div class="dropdown-item d-flex" *ngFor="let item of notifications" [routerLink]="[item.link]">
+							<div class="notification-icon">
+								<i class="material-icons-outlined text-{{item.status}} mr-1">{{item.icon}}</i>
+							</div>
+							<div class="notification-details">
+								<p class="m-0 font-weight-500">
+									<span>{{item.title}}</span>
+									<span class="flex-grow-1"></span>
+								</p>
+								<p class="text-small text-muted m-0">{{item.text | excerpt:30}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div ngbDropdown [placement]="'bottom-right'" class="user align-self-end cursor-pointer">
+					<img src="./assets/images/thumb/user-1.jpg" width="36" id="userDropdown" class="rounded-circle" ngbDropdownToggle alt="">
+
+					<div ngbDropdownMenu aria-labelledby="userDropdown" class="header-account-dropdown">
+						<div class="dropdown-header">
+							<h5> Hi! Timothy Carlson</h5>
+						</div>
+						<button class="dropdown-item">Profile Settings</button>
+						<button class="dropdown-item">Email Inbox</button>
+						<button class="dropdown-item" (click)="signout()">Sign out</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="horizontal-menu">
+		<nav>
+			<ul class="main-h-list">
+				<li class="have-children" [ngClass]="{ active: item.active }" *ngFor="let item of nav">
+					<ng-container *ngIf="item.type === 'dropDown'">
+						<a>
+							<i class="i notranslate material-icons-outlined"
+								aria-hidden="true">{{item.icon}}</i><span>{{item.name}}</span>
+						</a>
+						<ul class="dropdown ng-star-inserted">
+							<li *ngFor="let subitem of item.sub">
+								<a *ngIf="subitem.type === 'link'" routerLink="{{subitem.state}}">{{subitem.name}}</a>
+								<ng-container *ngIf="subitem.type === 'dropDown'">
+									<a>
+										<i class="i notranslate material-icons-outlined"
+											aria-hidden="true">{{subitem.icon}}</i><span>{{subitem.name}}</span>
+									</a>
+									<ul class="dropdown ng-star-inserted">
+										<li *ngFor="let subitem of item.sub">
+											<a *ngIf="item.type === 'link'" routerLink="{{subitem.state}}">{{subitem.name}}</a>
+											<!---->
+										</li>
+									</ul>
+								</ng-container>
+								<!---->
+							</li>
+						</ul>
+					</ng-container>
+					<ng-container *ngIf="item.type === 'link'">
+						<a routerLink="{{item.state}}">{{item.name}}</a>
+					</ng-container>
+				</li>
+				<!---->
+			</ul>
+		</nav>
+	</div>
+</div>

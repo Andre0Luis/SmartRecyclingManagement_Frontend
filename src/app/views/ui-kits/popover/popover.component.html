@@ -1,0 +1,68 @@
+<div class="breadcrumb">
+    <h1>Popover</h1>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Quick and easy popovers</h5>
+                <button type="button" class="btn btn-outline-secondary btn-rounded mr-2" placement="top" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                    popoverTitle="Popover on top">
+                    Popover on top
+                </button>
+
+                <button type="button" class="btn btn-outline-secondary btn-rounded mr-2" placement="right" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                    popoverTitle="Popover on right">
+                    Popover on right
+                </button>
+
+                <button type="button" class="btn btn-outline-secondary btn-rounded mr-2" placement="bottom" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                    popoverTitle="Popover on bottom">
+                    Popover on bottom
+                </button>
+
+                <button type="button" class="btn btn-outline-secondary btn-rounded mr-2" placement="left" ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                    popoverTitle="Popover on left">
+                    Popover on left
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">HTML and bindings in popovers</h5>
+                <ng-template #popTitle>Popover Title</ng-template>
+                <ng-template #popContent>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, inventore?</p>
+                    <blockquote>Lorem ipsum dolor sit amet consectetur adipisicing.</blockquote>
+                </ng-template>
+                <button type="button" class="btn btn-outline-secondary btn-rounded" [ngbPopover]="popContent" [popoverTitle]="popTitle">
+                    I've got markup in my popover!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Custom and manual triggers</h5>
+                <button type="button" class="btn btn-outline-secondary btn-rounded" ngbPopover="You see, I show up on hover!"
+                    triggers="mouseenter:mouseleave" popoverTitle="Pop title">
+                    Hover over me!
+                </button>
+
+                <hr>
+                <button type="button" class="btn btn-outline-secondary btn-rounded mr-2" ngbPopover="What a great tip!" [autoClose]="false"
+                    triggers="manual" #p="ngbPopover" (click)="p.open()" popoverTitle="Pop title">
+                    Click me to open a popover
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-rounded mr-2" (click)="p.close()">
+                    Click me to close a popover
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

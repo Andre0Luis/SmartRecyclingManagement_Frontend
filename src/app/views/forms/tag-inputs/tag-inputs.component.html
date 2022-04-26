@@ -1,0 +1,31 @@
+<div class="breadcrumb">
+  <h1>Tag Input</h1>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Tag inputs</h5>
+        <tag-input [formControl]="tagsCtrl1"
+          (onSelect)="onSelect($event)"
+          [modelAsStrings]="true" theme='primary'>
+        </tag-input>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Autocomplete</h5>
+        <tag-input [formControl]="tagsCtrl2"
+          (onSelect)="onSelect($event)"
+          theme='primary' placeholder="Type Country name">
+          <tag-input-dropdown [focusFirstElement]="true" [autocompleteItems]="autocompletes$ | async">
+          </tag-input-dropdown>
+        </tag-input>
+      </div>
+    </div>
+  </div>
+</div>
+  
