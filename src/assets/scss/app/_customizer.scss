@@ -10,7 +10,8 @@ html.dark-theme {
   .app-admin-wrap {
     background: #000000;
   }
-  .sidebar-main{
+
+  .sidebar-main {
     background: #000000 !important;
   }
 }
@@ -294,51 +295,54 @@ html.dark-theme {
 .faigo-main-header {
   transition: all .24s ease-in-out;
 }
- .sidebar-closed {
-   .faigo-sidebar-main .faigo-main-header {
-     width: 100%;
-   }
- }
+
+.sidebar-closed {
+  .faigo-sidebar-main .faigo-main-header {
+    width: 100%;
+  }
+}
 
 .wel-icon {
-	background: #fff;
-	width: 50px;
-	height: 50px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 100%;
-	box-shadow: 0 0 10px rgba(0,0,0,0.2);
-	margin-bottom: 1rem;
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
 }
-@media(max-width:1550px){
-  .md-row{
-  .half{
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-.md-row{
-  .full{
-    flex: 0 0 100%;
-    max-width: 1000%;
-  }
-}
-}
-@media(max-width:1280px){
-  .md-row{
-  .half{
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-}
-li.active{
-  .sub-menu-wrap{
 
+@media(max-width:1550px) {
+  .md-row {
+    .half {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  .md-row {
+    .full {
+      flex: 0 0 100%;
+      max-width: 1000%;
+    }
   }
 }
+
+@media(max-width:1280px) {
+  .md-row {
+    .half {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+li.active {
+  .sub-menu-wrap {}
+}
+
 .faigo-sidebar-main .sidebar-main .sidebar-nav li.active .sub-menu-wrap .nav-menu:hover .nav-menu__icon::before {
-	content: none;
+  content: none;
 }
-

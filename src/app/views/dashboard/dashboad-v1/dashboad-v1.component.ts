@@ -1,74 +1,91 @@
 import { Component, OnInit } from '@angular/core';
 import { EChartOption } from 'echarts';
+import { StatusMensalDTO } from 'src/app/data/statusMensalDTO';
+import { ProductService } from 'src/app/services/product.service';
 import { echartStyles } from '../../../shared/echart-styles';
 
 @Component({
-	selector: 'app-dashboad-v1',
-	templateUrl: './dashboad-v1.component.html',
-	styleUrls: ['./dashboad-v1.component.css']
+    selector: 'app-dashboad-v1',
+    templateUrl: './dashboad-v1.component.html',
+    styleUrls: ['./dashboad-v1.component.css']
 })
 export class DashboadOneComponent implements OnInit {
-	chartLineOption1: EChartOption;
-	chartLineOption2: EChartOption;
+
+    id: Number = 1;
+
+    statusMensal: StatusMensalDTO = {};
+
+    chartLineOption1: EChartOption;
+    chartLineOption2: EChartOption;
     salesChartBar: EChartOption;
 
-	constructor() { }
 
-	ngOnInit() {
-		this.chartLineOption1 = {
-			...echartStyles.lineFullWidth, ...{
-				series: [{
-					data: [30, 40, 20, 50, 40, 80, 90],
-					...echartStyles.smoothLine,
-					markArea: {
-						label: {
-							show: true
-						}
-					},
-					areaStyle: {
-						color: 'rgba(138, 109, 236, 0.4)',
-						origin: 'start'
-					},
-					lineStyle: {
-						color: '#906afb',
-					},
-					itemStyle: {
-						color: '#906afb'
-					}
-				}]
-			}
-		};
-		this.chartLineOption2 = {
-			...echartStyles.lineFullWidth, ...{
-				series: [{
-					data: [30, 10, 40, 10, 40, 20, 90],
-					...echartStyles.smoothLine,
-					markArea: {
-						label: {
-							show: true
-						}
-					},
-					areaStyle: {
-						color: 'rgba(255, 193, 7, 0.2)',
-						origin: 'start'
-					},
-					lineStyle: {
-						color: '#f45905'
-					},
-					itemStyle: {
-						color: '#f45905'
-					}
-				}]
-			}
-		};
-		this.chartLineOption2.xAxis.data = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+    constructor(private productService: ProductService) { }
+
+    ngOnInit() {
+        var gastoMes;
+        this.productService.getConsumoMensal(this.id).subscribe(res => {
+            this.statusMensal = res;
+            gastoMes = res.gastoMensal;
+            console.log(gastoMes);
+        }
+        );
+
+        this.chartLineOption1 = {
+            ...echartStyles.lineFullWidth, ...{
+                series: [{
+                    data: [30, 40, 20, 50, 40, 80, 90],
+                    ...echartStyles.smoothLine,
+                    markArea: {
+                        label: {
+                            show: true
+                        }
+                    },
+                    areaStyle: {
+                        color: 'rgba(138, 109, 236, 0.4)',
+                        origin: 'start'
+                    },
+                    lineStyle: {
+                        color: '#906afb',
+                    },
+                    itemStyle: {
+                        color: '#906afb'
+                    }
+                }]
+            }
+        };
+        this.chartLineOption2 = {
+            ...echartStyles.lineFullWidth, ...{
+                series: [{
+                    data: [30, 10, 40, 10, 40, 20, 90],
+                    ...echartStyles.smoothLine,
+                    markArea: {
+                        label: {
+                            show: true
+                        }
+                    },
+                    areaStyle: {
+                        color: 'rgba(255, 193, 7, 0.2)',
+                        origin: 'start'
+                    },
+                    lineStyle: {
+                        color: '#f45905'
+                    },
+                    itemStyle: {
+                        color: '#f45905'
+                    }
+                }]
+            }
+        };
+        this.chartLineOption2.xAxis.data = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
         this.salesChartBar = {
             legend: {
                 borderRadius: 0,
                 orient: 'horizontal',
                 x: 'right',
-                data: ['Online', 'Offline']
+                data: ['Gastos Mensais'],
             },
             grid: {
                 left: '8px',
@@ -82,7 +99,7 @@ export class DashboadOneComponent implements OnInit {
             },
             xAxis: [{
                 type: 'category',
-                data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+                data: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
                 axisTick: {
                     alignWithLabel: true
                 },
@@ -94,44 +111,36 @@ export class DashboadOneComponent implements OnInit {
                 }
             }],
             yAxis: [{
-                    type: 'value',
-                    axisLabel: {
-                        formatter: '${value}'
-                    },
-                    min: 0,
-                    max: 100000,
-                    interval: 25000,
-                    axisLine: {
-                        show: false
-                    },
-                    splitLine: {
-                        show: true,
-                        interval: 'auto'
-                    }
+                type: 'value',
+                axisLabel: {
+                    formatter: '${value}'
+                },
+                min: 0,
+                max: 1000,
+                interval: 50,
+                axisLine: {
+                    show: false
+                },
+                splitLine: {
+                    show: true,
+                    interval: 'auto'
                 }
+            }
 
             ],
 
             series: [{
-                    name: 'Online',
-                    data: [35000, 69000, 22500, 60000, 50000, 50000, 30000, 80000, 70000, 60000, 20000, 30005],
-                    label: { show: false, color: '#0168c1' },
-                    type: 'line',
-                    barGap: 0,
-                    color: '#bcbbdd',
-                    smooth: true,
+                name: 'Gastos Mensais',
+                data: [0, 0, 0, 0, 100, gastoMes, 0, 0, 0, 0, 0, 0],
+                label: { show: false, color: '#0168c1' },
+                type: 'line',
+                barGap: 0,
+                color: '#bcbbdd',
+                smooth: true,
 
-                },
-                {
-                    name: 'Offline',
-                    data: [45000, 82000, 35000, 93000, 71000, 89000, 49000, 91000, 80200, 86000, 35000, 40050],
-                    label: { show: false, color: '#639' },
-                    type: 'line',
-                    color: '#7569b3',
-                    smooth: true
-                }
+            }
 
             ]
         };
-	}
+    }
 }

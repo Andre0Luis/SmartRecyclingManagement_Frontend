@@ -1,182 +1,139 @@
 <div class="">
-	<div class="breadcrumb">
-		<div>
-			<h1>Version 1</h1>
-			<p> Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-		</div>
-	</div>
-	<!-- <div class="row md-row">
-		<div class="col-12 col-md-4 col-lg-4">
-			<div class="card bg-primary mb-4">
-				<div class="card-body badge-price d-flex align-items-sm-center">
-					<div class="mr-3 badge-price--icon">
-						<i class="i-Medal-2 text-white text-70"></i>
-					</div>
-					<div>
-						<h2 class="text-white mb-1">Great John! You are Doing Amazing!</h2>
-						<p class="lead text-white">You Just levelled Up!</p>
-						<p class="text-white mb-2 d-flex"><i class="i-Yes text-white mr-2 text-20"></i> 1000+ Sales</p>
-						<p class="text-white mb-2 d-flex"><i class="i-Yes text-white mr-2 text-20"></i> Bounce Rate Less Than
-							5%</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-12 col-md-4 col-lg-4">
-			<div class="card card-chart-bottom o-hidden mb-4">
-				<div class="card-body">
-					<p class="mb-2 text-primary text-30">$40250</p>
-					<div class="text-muted lead">Totol Income</div>
-				</div>
-				<div echarts [options]="chartLineOption1" [autoResize]="true" style="height: 78px;"></div>
-			</div>
-		</div>
-		<div class="col-12 col-md-4 col-lg-4">
-			<div class="card card-chart-bottom o-hidden mb-4">
-				<div class="card-body">
-					<p class="mb-2 text-warning text-30">25,564</p>
-					<div class="text-muted lead">Total Subscribers</div>
-				</div>
-				<div echarts [options]="chartLineOption2" [autoResize]="true" style="height: 78px;"></div>
-			</div>
-		</div>
-	</div> -->
+    <div class="breadcrumb">
+        <div>
+            <h1>Dashoard Informativa</h1>
+            <p>Graficos informativos de gastos e volume de lixo de acordo com as compras</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+            <div class="card card-icon mb-4">
+                <div class="card-body p-4 pb-0">
+                    <h5 class="card-title-plastico">Plásticos</h5>
+                    <div class="">
+                        <div>
+                            <h2 class="font-weight-normal">{{statusMensal.plastico}}%</h2>
+                        </div>
+                        <div>
+                            <div class="mb-3">
+                                <ngb-progressbar type="primary" [value]="statusMensal.plastico" height="4px">
+                                </ngb-progressbar>
+                            </div>
+                            <h6 class="font-weight-normal">Total mensal até o momento</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+            <div class="card card-icon mb-4">
+                <div class="card-body p-4 pb-0">
+                    <h5 class="card-title-metal">Metais</h5>
+                    <div class="">
+                        <div>
+                            <h2 class="font-weight-normal">{{statusMensal.metal}}%</h2>
+                        </div>
+                        <div>
+                            <div class="mb-3">
+                                <ngb-progressbar type="danger" [value]="statusMensal.metal" height="4px">
+                                </ngb-progressbar>
+                            </div>
+                            <h6 class="font-weight-normal">Total mensal até o momento</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+            <div class="card card-icon mb-4">
+                <div class="card-body p-4 pb-0">
+                    <h5 class="card-title-papel">Papéis</h5>
+                    <div class="">
+                        <div>
+                            <h2 class="font-weight-normal">{{statusMensal.papel}}%</h2>
+                        </div>
+                        <div>
+                            <div class="mb-3">
+                                <ngb-progressbar type="success" [value]="statusMensal.papel" height="4px">
+                                </ngb-progressbar>
+                            </div>
+                            <h6 class="font-weight-normal">Total mensal até o momento</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+            <div class="card card-icon mb-4">
+                <div class="card-body p-4 pb-0">
+                    <h5 class="card-title-vidro">Vidros</h5>
+                    <div class="">
+                        <div>
+                            <h2 class="font-weight-normal">{{statusMensal.vidro}}%</h2>
+                        </div>
+                        <div>
+                            <div class="mb-3">
+                                <ngb-progressbar type="warning" [value]="statusMensal.vidro" height="4px">
+                                </ngb-progressbar>
+                            </div>
+                            <h6 class="font-weight-normal">Total mensal até o momento</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+            <div class="card card-icon mb-4">
+                <div class="card-body p-4 pb-0">
+                    <h5 class="card-title-organico">Resíduos Orgânicos
+                    </h5>
+                    <div class="">
+                        <div>
+                            <h2 class="font-weight-normal">{{statusMensal.organico}}%</h2>
+                        </div>
+                        <div>
+                            <div class="mb-3">
+                                <ngb-progressbar type="warning" [value]="statusMensal.organico" height="4px">
+                                </ngb-progressbar>
+                            </div>
+                            <h6 class="font-weight-normal">Total mensal até o momento</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+            <div class="card card-icon mb-4">
+                <div class="card-body p-4 pb-0">
+                    <h5 class="card-title-nreciclavel">Não Recicláveis</h5>
+                    <div class="">
+                        <div>
+                            <h2 class="font-weight-normal">{{statusMensal.naoReciclavel}}%</h2>
+                        </div>
+                        <div>
+                            <div class="mb-3">
+                                <ngb-progressbar type="warning" [value]="statusMensal.naoReciclavel" height="4px">
+                                </ngb-progressbar>
+                            </div>
+                            <h6 class="font-weight-normal">Total mensal até o momento</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="row">
-		<div class="col-12 col-md-6 col-lg-6 col-xl-3">
-			<div class="card card-icon mb-4">
-				<div class="card-body p-4 pb-0">
-					<h5 class="card-title">Gross Revenue</h5>
-					<div class="">
-						<div>
-							<h2 class="font-weight-normal">72.18%</h2>
-						</div>
-						<div>
-							<div class="mb-3">
-								<ngb-progressbar type="primary" [value]="72.18" height="4px"></ngb-progressbar>
-							</div>
-							<h6 class="font-weight-normal">Total Profit</h6>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-12 col-md-6 col-lg-6 col-xl-3">
-			<div class="card card-icon mb-4">
-				<div class="card-body p-4 pb-0">
-					<h5 class="card-title">Bounce Rate</h5>
-					<div class="">
-						<div>
-							<h2 class="font-weight-normal">53.18%</h2>
-						</div>
-						<div>
-							<div class="mb-3">
-								<ngb-progressbar type="danger" [value]="53" height="4px"></ngb-progressbar>
-							</div>
-							<h6 class="font-weight-normal">Per Month</h6>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-12 col-md-6 col-lg-6 col-xl-3">
-			<div class="card card-icon mb-4">
-				<div class="card-body p-4 pb-0">
-					<h5 class="card-title">Unique Visitors</h5>
-					<div class="">
-						<div>
-							<h2 class="font-weight-normal">23.78%</h2>
-						</div>
-						<div>
-							<div class="mb-3">
-								<ngb-progressbar type="success" [value]="23.78" height="4px"></ngb-progressbar>
-							</div>
-							<h6 class="font-weight-normal">Per Month</h6>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-12 col-md-6 col-lg-6 col-xl-3">
-			<div class="card card-icon mb-4">
-				<div class="card-body p-4 pb-0">
-					<h5 class="card-title">New Orders</h5>
-					<div class="">
-						<div>
-							<h2 class="font-weight-normal">21.12%</h2>
-						</div>
-						<div>
-							<div class="mb-3">
-								<ngb-progressbar type="warning" [value]="21.12" height="4px"></ngb-progressbar>
-							</div>
-							<h6 class="font-weight-normal">Per Week</h6>
-						</div>
-					</div>
-				</div>
-			</div>
+    <div class="col-12 col-md-12 col-lg-6 col-xl-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Gastos Mensais</h5>
+                <div echarts [options]="salesChartBar" [autoResize]="true" style="height: 400px;" aling="center"></div>
+            </div>
+        </div>
+    </div>
 
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-12 col-md-12 col-lg-6 col-xl-3">
-			<div class="card mb-4">
-				<div class="card-body">
-					<h5 class="card-title">Gross Revenue</h5>
-					<div class="p-4 bg-primary text-center mb-4 rounded">
-						<h5 class="font-weight-normal text-white">Revenue <span class="font-xs">(This Year)</span> </h5>
-						<h4 class="mb-0 text-white">$566</h4>
-					</div>
-					<div class="p-4 text-center align-items-center rounded mb-4 box-shadow border">
-						<div class="d-flex justify-content-between mb-4">
-							<h5 class="font-weight-normal mb-0">Target</h5>
-							<h5 class="mb-0 font-weight-normal">46%</h5>
-						</div>
-						<div>
-							<div class="mb-0">
-
-								<ngb-progressbar type="success" [value]="60" height="4px"></ngb-progressbar>
-							</div>
-						</div>
-					</div>
-					<div class="mb-4">
-						<div class="d-flex justify-content-between mb-2">
-							<p class="mb-0">
-								Lorem 1
-							</p>
-							<p class="mb-0">
-								56%
-							</p>
-						</div>
-						<ngb-progressbar type="success" [value]="60" height="4px"></ngb-progressbar>
-					</div>
-
-					<div class="mb-4">
-						<div class="d-flex justify-content-between mb-2">
-							<p class="mb-0">
-								Lorem 1
-							</p>
-							<p class="mb-0">
-								56%
-							</p>
-						</div>
-						<ngb-progressbar type="success" [value]="60" height="4px"></ngb-progressbar>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-		<div class="col-12 col-md-12 col-lg-6 col-xl-9">
-			<div class="card mb-4">
-				<div class="card-body">
-					<h5 class="card-title">This Year Sales</h5>
-					<div echarts [options]="salesChartBar" [autoResize]="true" style="height: 378px;"></div>
-				</div>
-			</div>
-		</div>
-
-	</div>
-	<!-- 
+</div>
+<!-- 
 	<div class="row">
 
 		<div class="col-lg-4 col-sm-12">
@@ -207,161 +164,52 @@
 			</div>
 		</div>
 	</div> -->
-	<div class="row md-row">
-		<div class="col-md-4 half">
-			<div class="card mb-4">
-				<div class="card-body">
-					<h5 class="card-title">User Feed</h5>
-					<ul class="feed-list">
-						<li class="feed-list--item mb-3">
-							<div class="d-flex align-items-center mb-2">
-								<div class="mr-3">
-									<img src="./assets/images/thumb/user-1.jpg" class="rounded" width="60" id="userDropdown">
-								</div>
-								<div class="info">
-									<h6 class="mb-0">Albus Snape</h6>
-									<p class="text-muted">5 mins ago</p>
-								</div>
-							</div>
-							<div>
-								<p>Lorem ipsum dolor, sit amet cons ect etur adipi sicing elit. Blan ditiis volu ptatum optio
-									maiores odit</p>
-							</div>
-							<ul class="feed-list--action">
-								<li><a href=""><i
-											class="material-icons text-primary text-20 mr-2">swap_vert</i><span>168</span></a>
-								</li>
-								<li><a href=""><i
-											class="material-icons text-primary text-20 mr-2">insert_comment</i><span>18</span></a>
-								</li>
-							</ul>
-						</li>
-						<li class="feed-list--item mb-3">
-							<div class="d-flex align-items-center mb-2">
-								<div class="mr-3">
-									<img src="./assets/images/thumb/user-2.jpg" class="rounded" width="60" id="userDropdown">
-								</div>
-								<div class="info">
-									<h6 class="mb-0">Albus Snape</h6>
-									<p class="text-muted">5 mins ago</p>
-								</div>
-							</div>
-							<div>
-								<p>Lorem ipsum dolor, sit amet cons ect etur adipi sicing elit. Blan ditiis volu ptatum optio
-									maiores odit</p>
-							</div>
-							<ul class="feed-list--action">
-								<li><a href=""><i
-											class="material-icons text-primary text-20 mr-2">swap_vert</i><span>168</span></a>
-								</li>
-								<li><a href=""><i
-											class="material-icons text-primary text-20 mr-2">insert_comment</i><span>18</span></a>
-								</li>
-							</ul>
-						</li>
+<div class="row md-row">
 
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4 half">
-			<div class="card mb-4">
-				<div class="card-body">
-					<h5 class="card-title">Top Products</h5>
-					<div class="d-flex w-100 align-items-center mb-3 top-product--list">
-						<img class="mb-3 mb-sm-0 rounded mr-3 img-fluid" width="80"
-							src="./assets/images/ecom/product-sq-1.jpg" alt="img-product">
-						<div class="flex-grow-1">
-							<h6 class=""><a href="">Lorem ipsum dolor</a></h6>
-							<p class="text-primary m-0">$450</p>
-							<p class="text-danger m-0 small">324 Units are Left</p>
-						</div>
-						<div>
-							<button class="btn btn-primary cart-btn mt-3 mb-3 m-sm-0 btn-rounded btn-sm hide-sm"><span
-									class="material-icons">
-									shopping_cart
-								</span></button>
-						</div>
-					</div>
-					<div class="d-flex w-100 align-items-center mb-3 top-product--list">
-						<img class="mb-3 mb-sm-0 rounded mr-3 img-fluid" width="80"
-							src="./assets/images/ecom/product-sq-2.jpg" alt="img-product">
-						<div class="flex-grow-1">
-							<h6 class=""><a href="">Lorem ipsum dolor</a></h6>
-							<p class="text-primary m-0">$450</p>
-							<p class="text-danger m-0 small">324 Units are Left</p>
-						</div>
-						<div>
-							<button class="btn btn-primary cart-btn mt-3 mb-3 m-sm-0 btn-rounded btn-sm hide-sm"><span
-									class="material-icons">
-									shopping_cart
-								</span></button>
-						</div>
-					</div>
-					<div class="d-flex w-100 align-items-center mb-3 top-product--list">
-						<img class="mb-3 mb-sm-0 rounded mr-3 img-fluid" width="80"
-							src="./assets/images/ecom/product-sq-3.jpg" alt="img-product">
-						<div class="flex-grow-1">
-							<h6 class=""><a href="">Lorem ipsum dolor</a></h6>
-							<p class="text-primary m-0">$450</p>
-							<p class="text-danger m-0 small">324 Units are Left</p>
-						</div>
-						<div>
-							<button class="btn btn-primary cart-btn mt-3 mb-3 m-sm-0 btn-rounded btn-sm hide-sm"><span
-									class="material-icons">
-									shopping_cart
-								</span></button>
-						</div>
-					</div>
-					<div class="d-flex w-100 align-items-center mb-3 top-product--list">
-						<img class="mb-3 mb-sm-0 rounded mr-3 img-fluid" width="80"
-							src="./assets/images/ecom/product-sq-4.jpg" alt="img-product">
-						<div class="flex-grow-1">
-							<h6 class=""><a href="">Lorem ipsum dolor</a></h6>
-							<p class="text-primary m-0">$450</p>
-							<p class="text-danger m-0 small">324 Units are Left</p>
-						</div>
-						<div>
-							<button class="btn btn-primary cart-btn mt-3 mb-3 m-sm-0 btn-rounded btn-sm hide-sm"><span
-									class="material-icons">
-									shopping_cart
-								</span></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4 full">
-			<div class="card text-center o-hidden mb-4">
-				<div class="widget-user">
-					<div class="user-block-1 pb-5 pt-5 bg-success"><img src="./assets/images/thumb/user-4.jpg" width="160"
-							alt="user-header" class="img-fluid rounded-circle"></div>
-					<div class="card-user">
-						<div class="user-name pb-4">
-							<h5>Josephin Villa</h5>
-							<h6 class="txt-muted">Software Engineer</h6>
-						</div>
-						<div class="row pb-4 following">
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								<h4 class="txt-primary counter">485</h4>
-								<p>Followings</p>
-							</div>
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								<h4 class="txt-primary counter ng-tns-c219-4">1052</h4>
-								<p>Followers</p>
-							</div>
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								<h4 class="txt-primary counter">90</h4>
-								<p>Activities</p>
-							</div>
-						</div>
-						<div class="m-b-10"><button type="button"
-								class="btn btn-primary waves-effect waves-light text-uppercase"><i
-									class="icofont icofont-ui-user"></i>Add as Friend </button></div>
-						<div></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="col-md-6 half">
+        <div class="card mb-6">
+            <div class="card-body">
+                <h5 class="card-title">Produtos Comprados Recentemente</h5>
+                <div class="d-flex w-100 align-items-center mb-3 top-product--list">
+                    <img class="mb-3 mb-sm-0 rounded mr-3 img-fluid" width="80" src="./assets/images/ecom/product-sq-1.jpg" alt="img-product">
+                    <div class="flex-grow-1">
+                        <h6 class=""><a href="">Lorem ipsum dolor</a></h6>
+                        <p class="text-primary m-0">$450</p>
+                        <p class="text-danger m-0 small">324 Units are Left</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary cart-btn mt-3 mb-3 m-sm-0 btn-rounded btn-sm hide-sm"><span
+								class="material-icons">
+								shopping_cart
+							</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-6 half">
+        <div class="card mb-6">
+            <div class="card-body">
+                <h5 class="card-title">Produtos mais Comprados</h5>
+                <div class="d-flex w-100 align-items-center mb-3 top-product--list">
+                    <img class="mb-3 mb-sm-0 rounded mr-3 img-fluid" width="80" src="./assets/images/ecom/product-sq-1.jpg" alt="img-product">
+                    <div class="flex-grow-1">
+                        <h6 class=""><a href="">Lorem ipsum dolor</a></h6>
+                        <p class="text-primary m-0">$450</p>
+                        <p class="text-danger m-0 small">324 Units are Left</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary cart-btn mt-3 mb-3 m-sm-0 btn-rounded btn-sm hide-sm"><span
+								class="material-icons">
+								shopping_cart
+							</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
 </div>
